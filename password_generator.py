@@ -1,6 +1,3 @@
-from turtle import up
-
-
 def userPrompts():
     obj = {}
     pw_length = int(input(
