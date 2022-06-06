@@ -48,6 +48,9 @@ def userPrompts():
         special_boolean = False
 
     obj['special'] = special_boolean
+    if obj['uppercase'] == False and obj['lowercase'] == False and obj['special'] == False:
+        print("You must answer Y to at least one criteria!")
+        obj = userPrompts()
     return obj
 
 
