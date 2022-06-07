@@ -1,3 +1,5 @@
+import random
+
 def userPrompts():
     obj = {}
     pw_length = int(input(
@@ -56,7 +58,22 @@ def userPrompts():
 
 def main():
     answers = userPrompts()
-    print(answers)
+    uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    lower = uppercase.lower()
+    special = '!@#$%^&*()-=<>?/'
+    password = ''
+    pool = ''
+    if answers['uppercase']:
+        pool += uppercase
+    if answers['lowercase']:
+        pool += lower
+    if answers['special']:
+        pool += special
+    for i in range(answers['length']):
+        random_character = pool[random.randint(0, len(pool))]
+        password += random_character
+    print(password)
+
 
 
 main()
