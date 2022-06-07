@@ -72,6 +72,7 @@ def main():
     for i in range(answers['length']):
         random_character = pool[random.randint(0, len(pool))]
         password += random_character
+    print("Here is your password!\n***************************************\n")
     print(password)
 
 
