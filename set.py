@@ -21,3 +21,8 @@ no_common = webdev - data
 # another way of doing difference
 no_common_method = webdev.difference(data)
 print(no_common)
+
+# why to use sets?
+# sets make it very east/fast to check if a value exists in a collection
+# if checking a value exists in an array it's a lot faster to use a set rather than an array (big O notation stuff)
+# sets are an easy way to remove duplicates from a collection
