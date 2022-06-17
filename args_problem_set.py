@@ -52,3 +52,9 @@ def get_top_students(**kwargs):
 print(get_top_students(tim=91, stacy=83, carlos=97, jim=69))
 print(get_top_students(colt=61, elton=76))
 print(get_top_students(kitty=80, blue=95, toad=91))
+
+# parameters order
+# 1. mandatory parameters
+# 2. *args
+# 3. default parameters
+# 4. **kwargs
