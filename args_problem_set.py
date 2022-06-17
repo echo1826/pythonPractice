@@ -5,14 +5,14 @@
 
 #  contains_pickle("red", 45, "pickle", [])  --> True
 #  contains_pickle(1,2, "blue") ---------------> False
-from operator import truediv
 
 
 def contains_pickle(*args):
-    for item in args:
-        if item == 'pickle':
-            return True
-    return False
+    # for item in args:
+    #     if item == 'pickle':
+    #         return True
+    # return False
+    return "pickle" in args
 print(contains_pickle("red", 45, "pickle", []))
 print(contains_pickle(1,2, "blue"))
 
