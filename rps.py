@@ -38,7 +38,7 @@ num = randint(1, 3)
 #     computer_move = scissors
 if num == 1:
     computer_move = "rock"
-elif num == 2:
+elif num == 2: 
     computer_move = "paper"
 elif num == 3:
     computer_move = "scissors"
