@@ -18,8 +18,14 @@ class Dog:
         self.breed = breed
         self.location = location
         self.tricks = []
+    def learn_trick(self, trick):
+        self.tricks.append(trick)
 
 husky = Dog("Otter", "Husky", 78664)
 
 print(type(husky))
 print(isinstance(husky, Dog))
+
+husky.learn_trick("Sit")
+
+print(husky.tricks)
