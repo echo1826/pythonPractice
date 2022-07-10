@@ -10,3 +10,16 @@ class Puppy:
 puppy_obj = Puppy("Name")
 print(puppy_obj.name)
 print(puppy_obj.tricks)
+
+
+class Dog:
+    def __init__(self, name, breed, location):
+        self.name = name
+        self.breed = breed
+        self.location = location
+        self.tricks = []
+
+husky = Dog("Otter", "Husky", 78664)
+
+print(type(husky))
+print(isinstance(husky, Dog))
