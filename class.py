@@ -19,7 +19,10 @@ class Dog:
         self.location = location
         self.tricks = []
     def learn_trick(self, trick):
-        self.tricks.append(trick)
+        if(trick not in self.tricks):
+            self.tricks.append(trick)
+        else:
+            print(f"{self.name} already knows {trick}")
     def bark(self):
         print(f"{self.name} says woof")
     def perform_trick(self, trick):
