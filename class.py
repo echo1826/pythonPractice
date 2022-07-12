@@ -20,6 +20,13 @@ class Dog:
         self.tricks = []
     def learn_trick(self, trick):
         self.tricks.append(trick)
+    def bark(self):
+        print(f"{self.name} says woof")
+    def perform_trick(self, trick):
+        if(trick in self.tricks):
+            print(f"{self.name} performs {trick}")
+        else:
+            print(f"{self.name} doesn't know {trick}")
 
 husky = Dog("Otter", "Husky", 78664)
 
@@ -29,3 +36,4 @@ print(isinstance(husky, Dog))
 husky.learn_trick("Sit")
 
 print(husky.tricks)
+husky.bark()
