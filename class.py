@@ -61,3 +61,19 @@ print(Dog.species)
 
 stray = Dog.register_stray()
 print(stray.name, stray.location, stray.breed)
+
+class Cat:
+    def __init__(self, name):
+        self.name = name
+    def meow(self):
+        print(f"{self.name} meows")
+
+# how to make a sub class/inherit another class methods and attributes
+class Lion(Cat):
+    def __init__(self, name, pride_name):
+        # this is how to super the parent class attributes before initiating the specific attributes for the child class
+        # same super as JavaScript, just have to attach the init method passing in the parent attribute needed to construct the class
+        super().__init__(name)
+        self.pride_name = pride_name
+    def roar(self):
+        print(f"{self.name} roars")
