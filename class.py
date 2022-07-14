@@ -13,11 +13,25 @@ print(puppy_obj.tricks)
 
 
 class Dog:
+    # class attribute, attributes not defined in an instance method, defined on the class itself
+    # class attributes means all objects will have this attribute with this value
+    species = 'canine'
+
     def __init__(self, name, breed, location):
+        # instance attributes attributes defined inside of the instance method (i.e. self.name  )
         self.name = name
         self.breed = breed
         self.location = location
         self.tricks = []
+
+    @classmethod
+    def register_stray(cls):
+        # cls represents the actual Dog class, or class the class method is defined on
+        print(cls)
+
+    def whine(self):
+        print("whine")
+
     def learn_trick(self, trick):
         if(trick not in self.tricks):
             self.tricks.append(trick)
@@ -40,3 +54,8 @@ husky.learn_trick("Sit")
 
 print(husky.tricks)
 husky.bark()
+
+print(husky.species)
+print(Dog.species)
+
+Dog.register_stray()
