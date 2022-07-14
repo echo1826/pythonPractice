@@ -28,6 +28,7 @@ class Dog:
     def register_stray(cls):
         # cls represents the actual Dog class, or class the class method is defined on
         print(cls)
+        return cls('coming soon', 'unknown', 'unknown')
 
     def whine(self):
         print("whine")
@@ -58,4 +59,5 @@ husky.bark()
 print(husky.species)
 print(Dog.species)
 
-Dog.register_stray()
+stray = Dog.register_stray()
+print(stray.name, stray.location, stray.breed)
