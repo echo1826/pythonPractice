@@ -23,7 +23,6 @@ class Ball(Turtle):
 
     def restart(self):
         self.goto(0, 0)
-        # self.paddle_bounce()
         self.y_move = 10
         if self.x_move > 0:
             self.x_move = -10
