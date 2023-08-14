@@ -1,5 +1,6 @@
 from turtle import Turtle
 
+
 class Ball(Turtle):
     def __init__(self):
         super().__init__()
@@ -19,4 +20,7 @@ class Ball(Turtle):
 
     def paddle_bounce(self):
         self.x_move *= -1
-        # self.bounce()
+
+    def restart(self):
+        self.goto(0, 0)
+        self.paddle_bounce()
