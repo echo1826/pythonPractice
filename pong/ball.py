@@ -16,11 +16,16 @@ class Ball(Turtle):
         self.goto(new_x, new_y)
 
     def bounce(self):
-        self.y_move *= -1
+        self.y_move *= -1.25
 
     def paddle_bounce(self):
-        self.x_move *= -1
+        self.x_move *= -1.25
 
     def restart(self):
         self.goto(0, 0)
-        self.paddle_bounce()
+        # self.paddle_bounce()
+        self.y_move = 10
+        if self.x_move > 0:
+            self.x_move = -10
+        else:
+            self.x_move = 10
