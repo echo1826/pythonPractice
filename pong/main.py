@@ -28,6 +28,11 @@ while game_is_running:
     time.sleep(0.1)
     player_one.paddle.forward(20)
     player_two.paddle.forward(20)
+    if ball.ycor() >= 280 or ball.ycor() <= -280:
+        ball.bounce()
+
+    if ball.distance(player_two.paddle) < 50 and ball.xcor() > 320 or ball.distance(player_one.paddle) < 50 and ball.xcor() < -320:
+        ball.paddle_bounce()
     ball.move()
 
 
