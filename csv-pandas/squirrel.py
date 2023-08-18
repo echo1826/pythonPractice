@@ -11,9 +11,8 @@ black_rows = csv[csv["Primary Fur Color"] == "Black"]
 black_fur = black_rows["Primary Fur Color"].count()
 
 fur_dict = {
-    "grey": [grey_fur],
-    "cinnamon": [cinnamon_fur],
-    "black": [black_fur]
+    "Fur Color": ["grey", "cinnamon", "black"],
+    "Count": [grey_fur, cinnamon_fur, black_fur]
 }
 # print(fur_dict)
 fur_data_frame = pandas.DataFrame(fur_dict)
