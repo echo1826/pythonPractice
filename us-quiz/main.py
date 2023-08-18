@@ -25,8 +25,9 @@ while num_answered != 50:
         num_answered += 1
         answer_correct.append(answer.title())
 
-for state in answer_correct:
-    all_states.remove(state)
+# for state in answer_correct:
+#     all_states.remove(state)
+missing_states = [state for state in all_states if state not in answer_correct]
 
 pandas.DataFrame(all_states).to_csv("missing_states.csv")
 
