@@ -13,9 +13,10 @@ label["text"] = "New Text"
 label.config(text="More New Text")
 
 
-
 def click_handler():
     label.config(text=input.get())
+
+
 # command is an event listener for on click
 button = tkinter.Button(text="Click Me", command=click_handler)
 button.pack()
