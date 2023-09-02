@@ -10,6 +10,7 @@ WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 reps = 0
+checkmark = ""
 # ---------------------------- TIMER RESET ------------------------------- # 
 
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
@@ -36,6 +37,10 @@ def countdown(counter):
     if counter > 0:
         window.after(1000, countdown, counter - 1)
     else:
+        global reps
+        if reps % 2 == 0:
+            checkmark += "✔"
+            checkmark_label.config(text=checkmark)
         start_timer()
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -59,8 +64,8 @@ start_btn.grid(row=2, column=0)
 reset_btn = Button(text="Reset")
 reset_btn.grid(row=2, column=3)
 
-checkmark = "✔"
-checkmark_label = Label(text=checkmark, bg=YELLOW, fg=GREEN)
+
+checkmark_label = Label(bg=YELLOW, fg=GREEN)
 checkmark_label.grid(row=3, column=1)
 
 
