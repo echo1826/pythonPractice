@@ -17,10 +17,10 @@ LONG_BREAK_MIN = 20
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
-window.config(padx=100, pady=50)
+window.config(padx=100, pady=50, bg=YELLOW)
 
 
-canvas = Canvas(width=200, height=224)
+canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=YELLOW)
 tomato_image = PhotoImage(file="tomato.png")
 canvas.create_image(103, 112, image=tomato_image)
 canvas.create_text(103, 130, text="00:00", fill="white", font=("Arial", 30, "bold"))
