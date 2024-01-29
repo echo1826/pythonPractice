@@ -29,3 +29,5 @@ except KeyError as error: # how to grab the error message in an exception
 else: 
     content = file.read()
     print(content)
+finally:
+    file.close()
