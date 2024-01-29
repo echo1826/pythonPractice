@@ -66,10 +66,9 @@ def search():
     else:
         # print(data)
         # print(website_entry.get())
-        for key in data:
-            # print(data[key])
-            if(key == website_entry.get()):
-                messagebox.showinfo(title=key, message=f"Email: {data[key]['email']}\nPassword: {data[key]['password']}")
+        website = website_entry.get()
+        if(website in data):
+            messagebox.showinfo(title=website, message=f"Email: {data[website]['email']}\nPassword: {data[website]['password']}")
     finally:
         data_file.close()
 
