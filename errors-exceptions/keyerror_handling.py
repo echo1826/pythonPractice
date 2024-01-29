@@ -7,7 +7,8 @@ for post in facebook_posts:
   try:
     total_likes = total_likes + post['Likes']
   except KeyError:
-    continue
+    # continue # continue will force the loop to end and start at the next iteration
+    pass # pass will make sure the current iteration continues on and execute any code below
 
 
 print(total_likes)
