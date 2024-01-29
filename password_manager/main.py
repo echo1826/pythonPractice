@@ -39,15 +39,39 @@ def save():
     if len(website) == 0 or len(password) == 0:
         messagebox.showinfo(title="Oops", message="Please make sure you haven't left any fields empty.")
     else:
-        with open("data.json", "r") as data_file:
-            data = json.load(data_file) # load method will read the json file
+        try:
+            with open("data.json", "r") as data_file:
+                data = json.load(data_file) # load method will read the json file
+        except FileNotFoundError:
+            with open("data.json", "w") as data_file:
+                json.dump(new_data, data_file, indent=4)
+        else:
             data.update(new_data) # update method will update the json data from the json file
             
-        with open("data.json", "w") as data_file:
-            json.dump(data, data_file, indent=4) # dump method will write to the json file
+            with open("data.json", "w") as data_file:
+                json.dump(data, data_file, indent=4) # dump method will write to the json file
+                
+        finally:
+            data_file.close()
             website_entry.delete(0, END)
             password_entry.delete(0, END)
 
+
+def search():
+    try:
+        with open("data.json", "r") as data_file:
+            data = json.load(data_file)
+    except (FileNotFoundError, KeyError) as error:
+        messagebox.showerror(title="Error", message="Not found!")
+    else:
+        # print(data)
+        # print(website_entry.get())
+        for key in data:
+            # print(data[key])
+            if(key == website_entry.get()):
+                messagebox.showinfo(title=key, message=f"Email: {data[key]['email']}\nPassword: {data[key]['password']}")
+    finally:
+        data_file.close()
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -79,6 +103,8 @@ password_entry = Entry(width=21)
 password_entry.grid(row=3, column=1)
 
 # Buttons
+search_button = Button(text="Search", width=13, command=search)
+search_button.grid(row=1, column=3)
 generate_password_button = Button(text="Generate Password", command=generate_password)
 generate_password_button.grid(row=3, column=2)
 add_button = Button(text="Add", width=36, command=save)
