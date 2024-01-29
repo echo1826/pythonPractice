@@ -61,14 +61,16 @@ def search():
     try:
         with open("data.json", "r") as data_file:
             data = json.load(data_file)
-    except (FileNotFoundError, KeyError) as error:
-        messagebox.showerror(title="Error", message="Not found!")
+    except FileNotFoundError:
+        messagebox.showerror(title="Error", message="No passwords saved!")
     else:
         # print(data)
         # print(website_entry.get())
         website = website_entry.get()
         if(website in data):
             messagebox.showinfo(title=website, message=f"Email: {data[website]['email']}\nPassword: {data[website]['password']}")
+        else:
+            messagebox.showerror(title="Error", message=f"No details for {website} exists.")
     finally:
         data_file.close()
 
