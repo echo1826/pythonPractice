@@ -14,7 +14,7 @@ class QuizInterface:
         self.score_label.grid(row=0, column=1)
         
         self.canvas = Canvas(width=300, height=250)
-        self.quiz_text = self.canvas.create_text(150, 125, font=("Arial", 20, "italic"), text="Quiz App")
+        self.quiz_text = self.canvas.create_text(150, 125, font=("Arial", 20, "italic"), text="Quiz App", width=280)
         self.canvas.grid(row=1, column=0, columnspan=2, pady=50)
         
         true_image = PhotoImage(file="images/true.png")
@@ -25,7 +25,10 @@ class QuizInterface:
         self.false_button = Button(image=false_image, highlightthickness=0)
         self.false_button.grid(row=3, column=1)
         
+        self.show_next_question()
+        
         self.window.mainloop()
         
     def show_next_question(self):
         next_question = self.quiz.next_question()
+        self.canvas.itemconfig(self.quiz_text, text=next_question)
