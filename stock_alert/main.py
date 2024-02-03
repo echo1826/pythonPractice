@@ -1,8 +1,7 @@
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 import requests
-from datetime import datetime
-from datetime import timedelta
+
 ## STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
 stock_api_key = "4D1B124ZGCSYOLGV"
@@ -13,14 +12,21 @@ stock_parameters = {
     "apikey": stock_api_key
 }
 
-response = requests.get(stock_api, params=stock_parameters, timeout=10)
-response.raise_for_status()
-stock_data = response.json()
-# print(stock_data["Time Series (Daily)"])
-current_date = str(datetime.now().date())
-yesterday_date = str(datetime.now().date() - timedelta(days=1))
-print(stock_data["Time Series (Daily)"][current_date])
-print(stock_data["Time Series (Daily)"][yesterday_date])
+# response = requests.get(stock_api, params=stock_parameters, timeout=10)
+# response.raise_for_status()
+# stock_data = response.json()
+
+# last_two_days = list(stock_data["Time Series (Daily)"].items())[1:3]
+
+# print(last_two_days[0])
+# print(last_two_days[1])
+day_before = 197.8600#float(last_two_days[0][1]['4. close'])
+yesterday = 187.2900#float(last_two_days[1][1]['4. close'])
+percentage_difference = ((yesterday - day_before) / day_before) * 100
+print(percentage_difference)
+
+if percentage_difference > 5 or percentage_difference < -5:
+    print("get news")
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
-
+    
