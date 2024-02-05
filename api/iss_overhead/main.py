@@ -42,6 +42,6 @@ time_now = datetime.now()
 # and it is currently dark
 # Then send me an email to tell me to look up.
 # BONUS: run the code every 60 seconds.
-if margin() and sunset <= time_now or time_now <= sunrise:
+if margin(iss_latitude, iss_longitude, MY_LAT, MY_LONG) and sunset <= time_now or time_now <= sunrise:
     print("Email here!")
 
