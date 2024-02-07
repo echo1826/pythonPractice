@@ -9,17 +9,18 @@ headers = {
 class DataManager:
     #This class is responsible for talking to the Google Sheet.
     def __init__(self):
-        response = requests.get(url=ENDPOINT, headers=headers)
-        data = FlightData(response.json())
-        self.data = data.get_iata()
+        pass
         
-    def populate_iata(self):
-        for row in self.data["prices"]:
+    def get_rows(self):
+        response = requests.get(url=ENDPOINT, headers=headers)
+        return response.json()
+    
+    def update_sheet(self, update_value):
+        for row in update_value:
+            
             body = {
                 "price": row
             }
             res = requests.put(url=f"{ENDPOINT}/{body['price']['id']}", headers=headers, json=body)
-            print(res.text)
+            print(res.status_code)
 
-data = DataManager()
-data.populate_iata()
