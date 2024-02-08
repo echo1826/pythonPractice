@@ -23,4 +23,9 @@ class DataManager:
             }
             res = requests.put(url=f"{ENDPOINT}/{body['price']['id']}", headers=headers, json=body)
             print(res.status_code)
+            
+    def update_price(self, row):
+        
+        res = requests.put(url=f"{ENDPOINT}/{row['id']}", headers=headers, json={"price":row})
+        print(res.text)
 

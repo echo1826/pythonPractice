@@ -1,7 +1,6 @@
 #This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
 from data_manager import DataManager
 from flight_search import FlightSearch
-import urllib.parse
 
 spreadsheet_manager = DataManager()
 search = FlightSearch()
@@ -18,4 +17,8 @@ for row in sheet_data:
 if update:
     spreadsheet_manager.update_sheet(sheet_data)
     
-search.get_flights(sheet_data[0]["iataCode"])
+for row in sheet_data:
+    flight_data = search.get_flights(row["iataCode"])
+    if row["lowestPrice"] > flight_data.price:
+        row["lowestPrice"] = flight_data.price
+        spreadsheet_manager.update_price(row)

@@ -25,7 +25,7 @@ class FlightSearch:
 
         # for row in sheet_data:
         params = {
-            "fly_from": "LAX",
+            "fly_from": "LON",
             "fly_to": destination_code,
             "date_from": tomorrow.strftime("%d/%m/%Y"),
             "date_to": six_months.strftime("%d/%m/%Y"),
@@ -40,6 +40,8 @@ class FlightSearch:
             data = res.json()["data"][0]
         except IndexError:
             print(f"No flights found for {destination_code}")
+            return None
             
         flight_data = FlightData(price=data["price"], origin_city=data["cityFrom"], origin_airport=data["flyFrom"], destination_city=data["cityTo"], destination_airport=data["flyTo"], out_date=data["route"][0]["local_departure"].split("T")[0], return_date=data["route"][0]["local_departure"].split("T")[1])
+        
         return flight_data
