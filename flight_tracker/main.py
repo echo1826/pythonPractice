@@ -15,6 +15,7 @@ for row in sheet_data:
         row["iataCode"] = iata
         update = True
         
-print(sheet_data)
 if update:
     spreadsheet_manager.update_sheet(sheet_data)
+    
+search.get_flights(sheet_data[0]["iataCode"])
