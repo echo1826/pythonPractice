@@ -20,7 +20,6 @@ class FlightSearch:
         return data["locations"][0]["code"]
     
     def get_flights(self, destination_code):
-        flight_data = {}
         tomorrow = datetime.now() + timedelta(1)
         six_months = tomorrow + timedelta(days=182.5)
 
@@ -43,3 +42,4 @@ class FlightSearch:
             print(f"No flights found for {destination_code}")
             
         flight_data = FlightData(price=data["price"], origin_city=data["cityFrom"], origin_airport=data["flyFrom"], destination_city=data["cityTo"], destination_airport=data["flyTo"], out_date=data["route"][0]["local_departure"].split("T")[0], return_date=data["route"][0]["local_departure"].split("T")[1])
+        return flight_data
